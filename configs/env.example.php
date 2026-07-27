@@ -22,7 +22,8 @@ define('PATH_MODEL', PATH_ROOT . 'models/');
 define('DB_HOST',     'localhost');
 define('DB_PORT',     '3306');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+// Mat khau MySQL tren may local. Ca nhom dat root/123456 cho dong bo.
+define('DB_PASSWORD', '123456');
 define('DB_NAME',     'web2041_project');
 define('DB_OPTIONS', [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

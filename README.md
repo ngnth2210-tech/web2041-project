@@ -24,9 +24,15 @@
 
    Sau đó sửa `DB_NAME`, `DB_USERNAME`, `DB_PASSWORD` và `BASE_URL` cho khớp máy bạn.
 
-3. Tạo cơ sở dữ liệu bằng cách chạy `database.sql`.
+3. Đặt mật khẩu MySQL cho khớp cấu hình chung của nhóm (`root` / `123456`):
 
-4. Reload Apache trong Laragon rồi truy cập `http://web2041-project.test`.
+   ```sql
+   ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+   ```
+
+4. Tạo cơ sở dữ liệu bằng cách chạy `database.sql`.
+
+5. Reload Apache trong Laragon rồi truy cập `http://web2041-project.test`.
 
 ## Cấu trúc thư mục
 
