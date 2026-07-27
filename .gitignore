@@ -1,0 +1,21 @@
+# Cấu hình môi trường (chứa thông tin CSDL) — dùng env.example.php làm mẫu
+configs/env.php
+
+# File người dùng tải lên
+assets/uploads/*
+!assets/uploads/.gitkeep
+
+# Phụ thuộc
+/vendor/
+/node_modules/
+
+# Hệ điều hành / IDE
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Log & tạm
+*.log
+*.cache
