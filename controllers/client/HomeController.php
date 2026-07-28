@@ -2,20 +2,36 @@
 
 class HomeController
 {
-    public function index()
-    {
-        $title = 'Trang chủ';
-        $view  = 'home';
+    private $productModel;
+    private $categoryModel;
 
-        require_once PATH_VIEW_MAIN_CLIENT;
+    public function __construct() {
+        $this->productModel = new Product();
+        $this->categoryModel = new Category();
     }
-
-    public function notFound()
+   
+    
+    public function index() 
     {
-        http_response_code(404);
+        $view = 'home';
+        
+        $categories = $this->categoryModel->getAll(); 
+        
+        $category_id = $_GET['category_id'] ?? null;
+        
+        $top4Lastest = [];
+        $top4View = [];
+        $filteredProducts = [];
 
-        $title = 'Không tìm thấy trang';
-        $view  = '404';
+        if ($category_id) {
+            $filteredProducts = $this->productModel->getProductsByCategoryID($category_id);
+            $title = "Sản phẩm của danh mục";
+
+        } else {
+            $top4Lastest = $this->productModel->top4Lastest();
+            $top4View = $this->productModel->top4View();
+            $title = "";
+        }
 
         require_once PATH_VIEW_MAIN_CLIENT;
     }
