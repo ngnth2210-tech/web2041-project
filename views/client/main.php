@@ -366,30 +366,65 @@
     </div>
 </nav>
 
-<main class="page-body">
-    <?php if (isset($_SESSION['success_message'])): ?>
-        <div class="container mt-3">
-            <div class="alert alert-success"><?= e($_SESSION['success_message']) ?></div>
-        </div>
-        <?php unset($_SESSION['success_message']); ?>
-    <?php endif; ?>
+<!-- MAIN CONTENT -->
+<div class="page-body">
+    <?php if(isset($_SESSION['success_message'])): ?>
+    <div class="container mt-3">
+        <div class="alert alert-success"><i class="fas fa-check-circle me-2"></i><?= $_SESSION['success_message'] ?></div>
+    </div>
+    <?php unset($_SESSION['success_message']); endif; ?>
 
-    <?php if (isset($_SESSION['error_message'])): ?>
-        <div class="container mt-3">
-            <div class="alert alert-danger"><?= e($_SESSION['error_message']) ?></div>
-        </div>
-        <?php unset($_SESSION['error_message']); ?>
-    <?php endif; ?>
+    <?php if(isset($view)) { require_once PATH_VIEW_CLIENT . $view . '.php'; } ?>
+</div>
 
-    <?php if (isset($view)) require_once PATH_VIEW_CLIENT . $view . '.php'; ?>
-</main>
-
+<!-- FOOTER -->
 <footer class="site-footer">
-    <div class="container text-center">
-        &copy; <?= date('Y') ?> WEB2041 Project
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="footer-brand"><i class="fas fa-leaf me-2"></i>FoodShop</div>
+                <p class="footer-tagline">Thực phẩm sạch, giao nhanh tận nhà. Chất lượng là ưu tiên hàng đầu của chúng tôi.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="footer-h">Danh mục</div>
+                <ul class="footer-links">
+                    <li><a href="#">Thực phẩm khô</a></li>
+                    <li><a href="#">Đồ uống</a></li>
+                    <li><a href="#">Snack & Bánh</a></li>
+                    <li><a href="#">Gia vị</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <div class="footer-h">Hỗ trợ</div>
+                <ul class="footer-links">
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-h">Liên hệ</div>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt me-2 text-green-400"></i>123 Đường ABC, Hà Nội</li>
+                    <li class="mt-1"><i class="fas fa-phone me-2"></i>1800 xxxx</li>
+                    <li class="mt-1"><i class="fas fa-envelope me-2"></i>hello@foodshop.vn</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © <?= date('Y') ?> FoodShop. Bảo lưu mọi quyền.
+        </div>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<?php if (isset($extraScripts)) echo $extraScripts; ?>
+<?php if(isset($extraScripts)) echo $extraScripts; ?>
 </body>
+</html>
