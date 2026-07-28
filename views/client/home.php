@@ -172,4 +172,14 @@
         </button>
     </div>
     <?php endif; ?>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner">
+        <div>
+            <h3>🎁 Giảm ngay 20% đơn đầu tiên</h3>
+            <p>Nhập mã <strong>WELCOME20</strong> khi thanh toán. Áp dụng đến hết tháng này.</p>
+        </div>
+        <a href="<?= BASE_URL ?>?action=list-product" class="promo-btn">Mua ngay</a>
+    </div>
+
     <?php endif; ?>
