@@ -353,6 +353,18 @@
     </div>
 </header>
 
+<!-- NAV -->
+<nav class="main-nav">
+    <div class="container">
+        <ul class="nav-links">
+            <li><a href="<?= BASE_URL ?>" class="<?= (!isset($_GET['action']))?'active':'' ?>">Trang chủ</a></li>
+            <li><a href="<?= BASE_URL ?>?action=list-product">Sản phẩm</a></li>
+            <li><a href="#">Về chúng tôi</a></li>
+            <li><a href="#">Khuyến mãi</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+</nav>
 
 <main class="page-body">
     <?php if (isset($_SESSION['success_message'])): ?>
@@ -381,4 +393,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <?php if (isset($extraScripts)) echo $extraScripts; ?>
 </body>
-</html>
