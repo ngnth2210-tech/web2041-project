@@ -21,3 +21,18 @@ if (!function_exists('upload_file')) {
         throw new Exception('Upload file không thành công!');
     }
 }
+
+if (!function_exists('e')) {
+    function e($value)
+    {
+        return htmlspecialchars($value ?? '', ENT_QUOTES, 'UTF-8');
+    }
+}
+
+if (!function_exists('redirect')) {
+    function redirect($url)
+    {
+        header("Location: $url");
+        exit;
+    }
+}
