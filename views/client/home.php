@@ -80,3 +80,25 @@
         </button>
     </div>
 </div>
+
+<div class="container pb-5">
+
+    <!-- CATEGORY FILTER -->
+    <div class="mb-5">
+        <div class="section-title">Danh mục sản phẩm</div>
+        <div class="section-subtitle">Tìm kiếm theo danh mục yêu thích</div>
+        <div>
+            <a href="<?= BASE_URL ?>" class="cat-chip <?= (!isset($_GET['category_id']))?'active':'' ?>">
+                <i class="fas fa-th-large"></i> Tất cả
+            </a>
+            <?php if(isset($categories) && is_array($categories)): ?>
+                <?php foreach($categories as $cat): ?>
+                <a href="<?= BASE_URL ?>?category_id=<?= $cat['id'] ?>"
+                   class="cat-chip <?= (($_GET['category_id']??null)==$cat['id'])?'active':'' ?>">
+                    <?= htmlspecialchars($cat['name']) ?>
+                </a>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+
