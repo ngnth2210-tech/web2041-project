@@ -304,18 +304,55 @@
 </head>
 <body>
 
+<!-- TOP STRIP -->
+<div class="topbar-strip">
+    <i class="fas fa-truck me-1"></i> Miễn phí giao hàng cho đơn từ 199.000đ &nbsp;|&nbsp;
+    Hotline: <strong>1800 xxxx</strong>
+</div>
+
+<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
         <a href="<?= BASE_URL ?>" class="site-logo">
-            <i class="fas fa-cube"></i> WEB2041
+            <i class="fas fa-leaf"></i> Ximishop
         </a>
 
-        <nav class="nav-links">
-            <a href="<?= BASE_URL ?>" class="<?= !isset($_GET['action']) ? 'active' : '' ?>">Trang chủ</a>
-            <a href="<?= BASE_URL_ADMIN ?>">Quản trị</a>
-        </nav>
+        <div class="header-search">
+            <form action="<?= BASE_URL ?>" method="GET">
+                <div class="search-wrap">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                    <input type="text" name="keyword" placeholder="Tìm sản phẩm bạn muốn..."
+                           value="<?= htmlspecialchars($_GET['keyword']??'') ?>">
+                </div>
+            </form>
+        </div>
+
+        <div class="header-actions">
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <div class="user-pill">
+                    <div class="user-avatar"><?= strtoupper(substr($_SESSION['user_name']??'U',0,1)) ?></div>
+                    <?= htmlspecialchars($_SESSION['user_name']) ?>
+                </div>
+                <a href="<?= BASE_URL ?>?action=order-history" class="hdr-btn hdr-btn-outline" title="Lịch sử đơn hàng">
+                    <i class="fas fa-clock-rotate-left"></i> Đơn hàng
+                </a>
+                <a href="<?= BASE_URL ?>?action=cart" class="hdr-btn hdr-btn-outline cart-btn" style="position:relative;">
+                    <i class="fas fa-shopping-basket"></i> Giỏ hàng
+                    <?php if(!empty($_SESSION['cart'])): ?>
+                    <span class="cart-count"><?= count($_SESSION['cart']) ?></span>
+                    <?php endif; ?>
+                </a>
+                <a href="<?= BASE_URL ?>?action=logout" class="hdr-btn hdr-btn-outline" style="color:#ef4444;border-color:#fecaca;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            <?php else: ?>
+                <a href="<?= BASE_URL ?>?action=login" class="hdr-btn hdr-btn-outline">Đăng nhập</a>
+                <a href="<?= BASE_URL ?>?action=register" class="hdr-btn hdr-btn-primary">Đăng ký</a>
+            <?php endif; ?>
+        </div>
     </div>
 </header>
+
 
 <main class="page-body">
     <?php if (isset($_SESSION['success_message'])): ?>
