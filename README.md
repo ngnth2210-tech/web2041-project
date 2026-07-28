@@ -69,7 +69,7 @@ Mọi request đều đi qua `index.php`. Front controller sẽ:
 
 ## Thêm chức năng mới
 
-1. Tạo model trong `models/`, kế thừa `BaseModel` và khai báo `$table`.
+1. Tạo model trong `models/`, kế thừa `BaseModel` để có sẵn kết nối `$this->pdo`, rồi tự viết các hàm truy vấn cần dùng.
 2. Tạo controller trong `controllers/client/` hoặc `controllers/admin/`.
 3. Khai báo action mới trong file route tương ứng.
 4. Tạo view trong `views/client/` hoặc `views/admin/`; layout sẽ tự nạp qua biến `$view`.
