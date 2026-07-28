@@ -102,3 +102,74 @@
         </div>
     </div>
 
+    <?php if(isset($filteredProducts) && !empty($filteredProducts)): ?>
+    <!-- FILTERED PRODUCTS -->
+    <div class="mb-2 d-flex align-items-center justify-content-between">
+        <div>
+            <div class="section-title">Kết quả tìm kiếm</div>
+            <div class="section-subtitle"><?= count($filteredProducts) ?> sản phẩm tìm thấy</div>
+        </div>
+        <a href="<?= BASE_URL ?>" class="btn btn-sm btn-light"><i class="fas fa-times me-1"></i>Xóa bộ lọc</a>
+    </div>
+    <div class="row g-3 mb-5">
+        <?php foreach($filteredProducts as $pro): ?>
+        <div class="col-6 col-md-3">
+            <div class="product-card">
+                <div class="prod-img-wrap">
+                    <img src="<?= BASE_ASSETS_UPLOADS . $pro["image"] ?>" alt="<?= htmlspecialchars($pro["name"]) ?>">
+                </div>
+                <div class="prod-body">
+                    <a href="<?= BASE_URL . '?action=detail-product&id=' . $pro["id"] ?>" class="prod-name"><?= htmlspecialchars($pro["name"]) ?></a>
+                    <div class="d-flex align-items-center justify-content-between mt-1">
+                        <span class="prod-price"><?= number_format($pro["price"]) ?>đ</span>
+                        <span class="prod-views"><i class="fas fa-eye me-1"></i><?= $pro["view_count"] ?? 0 ?></span>
+                    </div>
+                    <a href="<?= BASE_URL . '?action=detail-product&id=' . $pro["id"] ?>" class="btn-buy">
+                        <i class="fas fa-cart-plus"></i> Mua ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php else: ?>
+
+    <!-- NEW PRODUCTS -->
+    <div class="mb-2 d-flex align-items-center justify-content-between">
+        <div>
+            <div class="section-title">Sản phẩm mới nhất</div>
+            <div class="section-subtitle">Cập nhật hàng tuần, luôn mới lạ và hấp dẫn</div>
+        </div>
+        <a href="<?= BASE_URL ?>?action=list-product" class="btn btn-sm btn-light">Xem tất cả <i class="fas fa-arrow-right ms-1"></i></a>
+    </div>
+    <div class="row g-3 mb-2" id="product-list">
+        <?php foreach($top4Lastest as $key => $pro): ?>
+        <div class="col-6 col-md-3 product-item <?= ($key>=4)?'d-none':'' ?>">
+            <div class="product-card">
+                <div class="prod-img-wrap">
+                    <img src="<?= BASE_ASSETS_UPLOADS . $pro["image"] ?>" alt="<?= htmlspecialchars($pro["name"]) ?>">
+                </div>
+                <div class="prod-body">
+                    <a href="<?= BASE_URL . '?action=detail-product&id=' . $pro["id"] ?>" class="prod-name"><?= htmlspecialchars($pro["name"]) ?></a>
+                    <div class="d-flex align-items-center justify-content-between mt-1">
+                        <span class="prod-price"><?= number_format($pro["price"]) ?>đ</span>
+                        <span class="prod-views"><i class="fas fa-eye me-1"></i><?= $pro["view_count"] ?? 0 ?></span>
+                    </div>
+                    <a href="<?= BASE_URL . '?action=detail-product&id=' . $pro["id"] ?>" class="btn-buy">
+                        <i class="fas fa-cart-plus"></i> Mua ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php if(count($top4Lastest) > 4): ?>
+    <div class="text-center mb-5">
+        <button id="btn-load-more" class="btn btn-outline-success px-5 py-2 rounded-pill fw-600">
+            <i class="fas fa-angle-down me-2"></i>Xem thêm sản phẩm
+        </button>
+    </div>
+    <?php endif; ?>
+    <?php endif; ?>
