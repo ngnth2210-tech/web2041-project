@@ -182,4 +182,33 @@
         <a href="<?= BASE_URL ?>?action=list-product" class="promo-btn">Mua ngay</a>
     </div>
 
+    <!-- TOP VIEWED -->
+    <div class="mb-2 d-flex align-items-center justify-content-between">
+        <div>
+            <div class="section-title">🔥 Yêu thích nhất</div>
+            <div class="section-subtitle">Sản phẩm được xem nhiều nhất trong tuần</div>
+        </div>
+    </div>
+    <div class="row g-3 mb-5">
+        <?php foreach($top4View as $pro): ?>
+        <div class="col-6 col-md-3">
+            <div class="product-card">
+                <div class="prod-img-wrap">
+                    <img src="<?= BASE_ASSETS_UPLOADS . $pro["image"] ?>" alt="<?= htmlspecialchars($pro["name"]) ?>">
+                </div>
+                <div class="prod-body">
+                    <a href="<?= BASE_URL . '?action=detail-product&id=' . $pro["id"] ?>" class="prod-name"><?= htmlspecialchars($pro["name"]) ?></a>
+                    <div class="d-flex align-items-center justify-content-between mt-1">
+                        <span class="prod-price"><?= number_format($pro["price"]) ?>đ</span>
+                        <span class="prod-views"><i class="fas fa-fire me-1 text-danger"></i><?= $pro["view_count"] ?? 0 ?></span>
+                    </div>
+                    <a href="<?= BASE_URL . '?action=detail-product&id=' . $pro["id"] ?>" class="btn-buy">
+                        <i class="fas fa-cart-plus"></i> Mua ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+
     <?php endif; ?>
