@@ -31,3 +31,13 @@ define('DB_OPTIONS', [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ]);
 
+// ── Thanh toán MoMo (môi trường thử nghiệm) ─────────────────────
+// Đây là bộ khoá thử công khai của MoMo, không phải tài khoản thật,
+// giao dịch không dùng tiền thật.
+define('MOMO_PARTNER_CODE', 'MOMO');
+define('MOMO_ACCESS_KEY',   'F8BBA842ECF85');
+define('MOMO_SECRET_KEY',   'K951B6PE1waDMi640xX08PD3vg6EkVlz');
+define('MOMO_ENDPOINT',     'https://test-payment.momo.vn/v2/gateway/api/create');
+define('MOMO_RETURN_URL',   BASE_URL . '?action=momo-return');
+define('MOMO_NOTIFY_URL',   BASE_URL . '?action=momo-notify');
+
