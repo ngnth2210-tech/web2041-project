@@ -248,3 +248,21 @@
     </div>
 
     <?php endif; ?>
+
+</div>
+
+<script>
+const btnLoadMore = document.getElementById('btn-load-more');
+if(btnLoadMore) {
+    btnLoadMore.addEventListener('click', function() {
+        const hidden = document.querySelectorAll('.product-item.d-none');
+        let count = 0;
+        hidden.forEach(item => {
+            if(count < 4) { item.classList.remove('d-none'); count++; }
+        });
+        if(document.querySelectorAll('.product-item.d-none').length === 0) {
+            this.style.display = 'none';
+        }
+    });
+}
+</script>
