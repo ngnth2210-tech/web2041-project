@@ -112,7 +112,7 @@ INSERT INTO `categories` (`name`, `description`, `status`) VALUES
 ('Phụ kiện', 'Dụng cụ pha chế',          1);
 
 INSERT INTO `products` (`category_id`, `name`, `description`, `price`, `quantity`, `image`, `weights`, `view_count`, `status`) VALUES
-(1, 'Cà phê Arabica',  'Hạt Arabica Cầu Đất rang mộc',      120000, 50, NULL, '250g', 128, 1),
-(1, 'Cà phê Robusta',  'Hạt Robusta Đắk Lắk đậm vị',         95000, 40, NULL, '500g',  96, 1),
-(2, 'Trà Ô Long',      'Trà Ô Long Thái Nguyên',            150000, 30, NULL, '100g', 205, 1),
-(3, 'Phin pha cà phê', 'Phin nhôm truyền thống cỡ vừa',      45000, 25, NULL, NULL,    47, 1);
+(1, 'Cà phê Arabica',  'Hạt Arabica Cầu Đất rang mộc',      120000, 50, 'products/ca-phe-arabica.jpg',  '250g', 128, 1),
+(1, 'Cà phê Robusta',  'Hạt Robusta Đắk Lắk đậm vị',         95000, 40, 'products/ca-phe-robusta.jpg',  '500g',  96, 1),
+(2, 'Trà Ô Long',      'Trà Ô Long Thái Nguyên',            150000, 30, 'products/tra-o-long.jpg',      '100g', 205, 1),
+(3, 'Phin pha cà phê', 'Phin nhôm truyền thống cỡ vừa',      45000, 25, 'products/phin-pha-ca-phe.jpg', NULL,    47, 1);
