@@ -211,4 +211,40 @@
         <?php endforeach; ?>
     </div>
 
+    <!-- NEWS -->
+    <div class="section-title mb-1">Tin tức & Khuyến mãi</div>
+    <div class="section-subtitle">Cập nhật thông tin mới nhất từ FoodShop</div>
+    <div class="row g-3 mb-3">
+        <div class="col-md-4">
+            <div class="news-card">
+                <img src="../assets/uploads/tra_dao2.jpg" alt="">
+                <div class="news-card-body">
+                    <div class="news-date"><i class="fas fa-calendar me-1"></i>17/12/2025</div>
+                    <a href="#" class="news-title">Mùa hè rực rỡ - Giảm giá 50%</a>
+                    <p class="news-excerpt">Đón chào mùa hè sôi động với chương trình khuyến mãi cực lớn từ FoodShop...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="news-card">
+                <img src="../assets/uploads/hong_ts.jpg" alt="">
+                <div class="news-card-body">
+                    <div class="news-date"><i class="fas fa-calendar me-1"></i>16/12/2025</div>
+                    <a href="#" class="news-title">Ra mắt BST nhài sữa Lục Vân</a>
+                    <p class="news-excerpt">Hương vị độc đáo, vẻ ngoài cuốn hút. Thử ngay món mới độc quyền tại FoodShop...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="news-card">
+                <img src="https://marketplace.canva.com/EAGYVlNB0Yg/3/0/1600w/canva-b%C3%A0i-%C4%91%C4%83ng-instagram-th%C3%B4ng-b%C3%A1o-l%E1%BB%8Bch-ngh%E1%BB%89-t%E1%BA%BFt-2026-cao-c%E1%BA%A5p-t%E1%BB%91i-gi%E1%BA%A3n-%C4%91%E1%BB%8F-v%C3%A0ng-SbP8iZ37fg4.jpg" alt="">
+                <div class="news-card-body">
+                    <div class="news-date"><i class="fas fa-calendar me-1"></i>15/12/2025</div>
+                    <a href="#" class="news-title">Lịch nghỉ Tết Nguyên Đán 2026</a>
+                    <p class="news-excerpt">Thông báo lịch hoạt động của các cửa hàng trong dịp lễ Tết 2026...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <?php endif; ?>
