@@ -5,9 +5,9 @@
 -- Hoặc CLI: mysql -u root < database.sql
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS `web2041_project`
+CREATE DATABASE IF NOT EXISTS `hoangddph63542_web2041.03`
     DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `web2041_project`;
+USE `hoangddph63542_web2041.03`;
 
 -- ------------------------------------------------------------
 -- users

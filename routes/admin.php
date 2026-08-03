@@ -3,14 +3,24 @@
 $action = $_GET['action'] ?? '/';
 
 match ($action) {
-    '/'     => (new DashboardController)->index(),
-    // DANH MỤC
-    'list-category'       => (new CategoryController)->index(),
-    'create-category'     => (new CategoryController)->create(),
-    'store-category'      => (new CategoryController)->store(),
-    'edit-category'       => (new CategoryController)->edit(),
-    'update-category'     => (new CategoryController)->update(),
-    'toggle-category'     => (new CategoryController)->toggleStatus(),
+    '/' => (new DashboardController)->index(),
 
-    default => (new DashboardController)->notFound(),
+    // QUẢN TRỊ SẢN PHẨM
+    'list-product'   => (new ProductController)->index(),
+    'show-product'   => (new ProductController)->show(),
+    'create-product' => (new ProductController)->create(),
+    'store-product'  => (new ProductController)->store(),
+    'edit-product'   => (new ProductController)->edit(),
+    'update-product' => (new ProductController)->update(),
+    'toggle-product' => (new ProductController)->toggleStatus(),
+
+    // QUẢN TRỊ DANH MỤC
+    'list-category'   => (new CategoryController)->index(),
+    'create-category' => (new CategoryController)->create(),
+    'store-category'  => (new CategoryController)->store(),
+    'edit-category'   => (new CategoryController)->edit(),
+    'update-category' => (new CategoryController)->update(),
+    'toggle-category' => (new CategoryController)->toggleStatus(),
+
+    default => require_once PATH_VIEW_ADMIN . '404.php',
 };
