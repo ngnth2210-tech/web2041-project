@@ -1,7 +1,7 @@
 <?php
 
-define('BASE_URL', 'http://localhost/your-project/');
-define('BASE_URL_ADMIN',    'http://localhost/your-project/?mode=admin');
+define('BASE_URL', 'http://localhost/DUAN1/web2041-project/');
+define('BASE_URL_ADMIN',    'http://localhost/DUAN1/web2041-project/?mode=admin');
 
 define('PATH_ROOT',         __DIR__ . '/../');
 
@@ -25,7 +25,7 @@ define('DB_HOST',     'localhost');
 define('DB_PORT',     '3306');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'hoangddph63542_web2041.03');
+define('DB_NAME', 'hoangddph63542_web2041_03');
 define('DB_OPTIONS', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
