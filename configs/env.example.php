@@ -1,7 +1,7 @@
 <?php
 
-define('BASE_URL', 'http://localhost/DUAN1/web2041-project/');
-define('BASE_URL_ADMIN',    'http://localhost/DUAN1/web2041-project/?mode=admin');
+define('BASE_URL', 'http://localhost/web2041-project/');
+define('BASE_URL_ADMIN',    'http://localhost/web2041-project/?mode=admin');
 
 define('PATH_ROOT',         __DIR__ . '/../');
 
