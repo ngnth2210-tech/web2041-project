@@ -319,6 +319,7 @@
 
         <div class="header-search">
             <form action="<?= BASE_URL ?>" method="GET">
+                <input type="hidden" name="action" value="list-product">
                 <div class="search-wrap">
                     <button type="submit"><i class="fas fa-search"></i></button>
                     <input type="text" name="keyword" placeholder="Tìm sản phẩm bạn muốn..."
