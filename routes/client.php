@@ -40,4 +40,6 @@ match ($action) {
     'cart-update' => (new CartController)->update(),
     'cart-remove' => (new CartController)->remove(),
     'cart-clear'  => (new CartController)->clear(),
+
+    default => require_once PATH_VIEW_CLIENT . '404.php',
 };
