@@ -19,20 +19,21 @@ match ($action) {
     'logout'          => (new AuthController)->logout(),
 
     // Đặt hàng
-    'order-create'      => (new ClientOrderController)->create(),
-    'order-store'       => (new ClientOrderController)->store(),
-    'order-success'     => (new ClientOrderController)->success(),
-    'order-create-cart' => (new ClientOrderController)->createFromCart(),
+    // 'order-create'      => (new ClientOrderController)->create(),
+    // 'order-store'       => (new ClientOrderController)->store(),
+    // 'order-success'     => (new ClientOrderController)->success(),
+    // 'order-create-cart' => (new ClientOrderController)->createFromCart(),
 
     // Lịch sử đơn hàng
+
     'order-history' => (new OrderHistoryController)->index(),
     'order-detail'  => (new OrderHistoryController)->detail(),
     'order-cancel'  => (new OrderHistoryController)->cancel(),
 
     // MoMo Payment
-    'momo-pay'    => (new MomoController)->pay(),
-    'momo-return' => (new MomoController)->returnUrl(),
-    'momo-notify' => (new MomoController)->notify(),
+    // 'momo-pay'    => (new MomoController)->pay(),
+    // 'momo-return' => (new MomoController)->returnUrl(),
+    // 'momo-notify' => (new MomoController)->notify(),
 
     // Giỏ hàng
     'cart'        => (new CartController)->index(),
@@ -40,6 +41,9 @@ match ($action) {
     'cart-update' => (new CartController)->update(),
     'cart-remove' => (new CartController)->remove(),
     'cart-clear'  => (new CartController)->clear(),
+
+    //
+
 
     default => require_once PATH_VIEW_CLIENT . '404.php',
 };
