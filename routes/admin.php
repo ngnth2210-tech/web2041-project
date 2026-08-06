@@ -21,6 +21,10 @@ match ($action) {
     'edit-category'   => (new CategoryController)->edit(),
     'update-category' => (new CategoryController)->update(),
     'toggle-category' => (new CategoryController)->toggleStatus(),
-
+     // Quản trị người dùng
+     'list-user'   => (new UserController)->index(),
+     'show-user'   => (new UserController)->show(),
+     'lock-user'   => (new UserController)->lock(),
+     'unlock-user' => (new UserController)->unlock(),
     default => require_once PATH_VIEW_ADMIN . '404.php',
 };
