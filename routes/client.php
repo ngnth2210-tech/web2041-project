@@ -19,10 +19,10 @@ match ($action) {
     'logout'          => (new AuthController)->logout(),
 
     // Đặt hàng
-    // 'order-create'      => (new ClientOrderController)->create(),
-    // 'order-store'       => (new ClientOrderController)->store(),
-    // 'order-success'     => (new ClientOrderController)->success(),
-    // 'order-create-cart' => (new ClientOrderController)->createFromCart(),
+    'order-create'      => (new ClientOrderController)->create(),
+    'order-store'       => (new ClientOrderController)->store(),
+    'order-success'     => (new ClientOrderController)->success(),
+    'order-create-cart' => (new ClientOrderController)->createFromCart(),
 
     // Lịch sử đơn hàng
 
