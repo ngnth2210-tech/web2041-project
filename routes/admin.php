@@ -19,12 +19,18 @@ match ($action) {
     'create-category' => (new CategoryController)->create(),
     'store-category'  => (new CategoryController)->store(),
     'edit-category'   => (new CategoryController)->edit(),
-    'update-category' => (new CategoryController)->update(),
+    'update-category' => (new CategoryController)->update(),        
     'toggle-category' => (new CategoryController)->toggleStatus(),
      // Quản trị người dùng
      'list-user'   => (new UserController)->index(),
      'show-user'   => (new UserController)->show(),
      'lock-user'   => (new UserController)->lock(),
-     'unlock-user' => (new UserController)->unlock(),
+     'unlock-user' => (new UserController)->unlock(),   
+
+     // Quản trị đơn hàng
+    'list-order'          => (new AdminOrderController)->index(),
+    'show-order'          => (new AdminOrderController)->show(),
+    'update-order-status' => (new AdminOrderController)->updateStatus(),
+    'delete-order'        => (new AdminOrderController)->delete(),
     default => require_once PATH_VIEW_ADMIN . '404.php',
 };
