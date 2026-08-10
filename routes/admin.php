@@ -21,14 +21,23 @@ match ($action) {
     'edit-category'   => (new CategoryController)->edit(),
     'update-category' => (new CategoryController)->update(),
     'toggle-category' => (new CategoryController)->toggleStatus(),
-     // Quản trị người dùng
-     'list-user'   => (new UserController)->index(),
-     'show-user'   => (new UserController)->show(),
-     'lock-user'   => (new UserController)->lock(),
-     'unlock-user' => (new UserController)->unlock(),
-     // BÌNH LUẬN
-    'list-comment'        => (new CommentController)->index(),
-    'update-comment'      => (new CommentController)->updateStatus(),
-    'delete-comment'      => (new CommentController)->destroy(),
+
+    // QUẢN TRỊ NGƯỜI DÙNG
+    'list-user'   => (new UserController)->index(),
+    'show-user'   => (new UserController)->show(),
+    'lock-user'   => (new UserController)->lock(),
+    'unlock-user' => (new UserController)->unlock(),
+
+    // QUẢN TRỊ BÌNH LUẬN
+    'list-comment'   => (new CommentController)->index(),
+    'update-comment' => (new CommentController)->updateStatus(),
+    'delete-comment' => (new CommentController)->destroy(),
+
+    // QUẢN TRỊ ĐƠN HÀNG
+    'list-order'          => (new AdminOrderController)->index(),
+    'show-order'          => (new AdminOrderController)->show(),
+    'update-order-status' => (new AdminOrderController)->updateStatus(),
+    'delete-order'        => (new AdminOrderController)->delete(),
+
     default => require_once PATH_VIEW_ADMIN . '404.php',
 };
