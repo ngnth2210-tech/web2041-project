@@ -51,21 +51,21 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../assets/uploads/banner5.png" alt="Banner 1">
+                <img src="<?= BASE_ASSETS_UPLOADS ?>banner5.png" alt="Banner 1">
                 <div class="hero-caption">
                     <h2>Thực phẩm sạch, tươi ngon mỗi ngày</h2>
                     <p>Giao hàng nhanh trong 2 giờ đến tận nhà bạn</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../assets/uploads/banner6.png" alt="Banner 2">
+                <img src="<?= BASE_ASSETS_UPLOADS ?>banner6.png" alt="Banner 2">
                 <div class="hero-caption">
                     <h2>Ưu đãi hấp dẫn mỗi tuần</h2>
                     <p>Tiết kiệm đến 40% cho các sản phẩm chọn lọc</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../assets/uploads/banner7.png" alt="Banner 3">
+                <img src="<?= BASE_ASSETS_UPLOADS ?>banner7.png" alt="Banner 3">
                 <div class="hero-caption">
                     <h2>Đặc sản vùng miền chính hiệu</h2>
                     <p>Chất lượng kiểm định, nguồn gốc rõ ràng</p>
@@ -117,6 +117,7 @@
             <div class="product-card">
                 <div class="prod-img-wrap">
                     <img src="<?= BASE_ASSETS_UPLOADS . $pro["image"] ?>" alt="<?= htmlspecialchars($pro["name"]) ?>">
+                    
                 </div>
                 <div class="prod-body">
                     <a href="<?= BASE_URL . '?action=detail-product&id=' . $pro["id"] ?>" class="prod-name"><?= htmlspecialchars($pro["name"]) ?></a>
@@ -217,7 +218,7 @@
     <div class="row g-3 mb-3">
         <div class="col-md-4">
             <div class="news-card">
-                <img src="../assets/uploads/tra_dao2.jpg" alt="">
+                <img src="<?= BASE_ASSETS_UPLOADS ?>tra_dao2.jpg" alt="">
                 <div class="news-card-body">
                     <div class="news-date"><i class="fas fa-calendar me-1"></i>17/12/2025</div>
                     <a href="#" class="news-title">Mùa hè rực rỡ - Giảm giá 50%</a>
@@ -227,7 +228,7 @@
         </div>
         <div class="col-md-4">
             <div class="news-card">
-                <img src="../assets/uploads/hong_ts.jpg" alt="">
+                <img src="<?= BASE_ASSETS_UPLOADS ?>hong_ts.jpg" alt="">
                 <div class="news-card-body">
                     <div class="news-date"><i class="fas fa-calendar me-1"></i>16/12/2025</div>
                     <a href="#" class="news-title">Ra mắt BST nhài sữa Lục Vân</a>

@@ -26,5 +26,9 @@ match ($action) {
      'show-user'   => (new UserController)->show(),
      'lock-user'   => (new UserController)->lock(),
      'unlock-user' => (new UserController)->unlock(),
+     // BÌNH LUẬN
+    'list-comment'        => (new CommentController)->index(),
+    'update-comment'      => (new CommentController)->updateStatus(),
+    'delete-comment'      => (new CommentController)->destroy(),
     default => require_once PATH_VIEW_ADMIN . '404.php',
 };
