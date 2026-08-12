@@ -359,10 +359,10 @@
     <div class="container">
         <ul class="nav-links">
             <li><a href="<?= BASE_URL ?>" class="<?= (!isset($_GET['action']))?'active':'' ?>">Trang chủ</a></li>
-            <li><a href="<?= BASE_URL ?>?action=list-product">Sản phẩm</a></li>
-            <li><a href="#">Về chúng tôi</a></li>
-            <li><a href="#">Khuyến mãi</a></li>
-            <li><a href="#">Liên hệ</a></li>
+            <li><a href="<?= BASE_URL ?>?action=list-product" class="<?= (($_GET['action'] ?? '') === 'list-product') ? 'active' : '' ?>">Sản phẩm</a></li>
+            <li><a href="<?= BASE_URL ?>?action=about" class="<?= (($_GET['action'] ?? '') === 'about') ? 'active' : '' ?>">Về chúng tôi</a></li>
+            <li><a href="<?= BASE_URL ?>?action=promotion" class="<?= (($_GET['action'] ?? '') === 'promotion') ? 'active' : '' ?>">Khuyến mãi</a></li>
+            <li><a href="<?= BASE_URL ?>?action=contact" class="<?= (($_GET['action'] ?? '') === 'contact') ? 'active' : '' ?>">Liên hệ</a></li>
         </ul>
     </div>
 </nav>

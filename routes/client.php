@@ -35,6 +35,11 @@ match ($action) {
     'momo-return' => (new MomoController)->returnUrl(),
     'momo-notify' => (new MomoController)->notify(),
 
+    // Trang nội dung
+    'about'     => (new PageController)->about(),
+    'promotion' => (new PageController)->promotion(),
+    'contact'   => (new PageController)->contact(),
+
     // Giỏ hàng
     'cart'        => (new CartController)->index(),
     'cart-add'    => (new CartController)->add(),
