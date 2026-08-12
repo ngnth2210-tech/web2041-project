@@ -25,6 +25,7 @@ match ($action) {
     'order-create-cart' => (new ClientOrderController)->createFromCart(),
 
     // Lịch sử đơn hàng
+
     'order-history' => (new OrderHistoryController)->index(),
     'order-detail'  => (new OrderHistoryController)->detail(),
     'order-cancel'  => (new OrderHistoryController)->cancel(),
@@ -34,12 +35,20 @@ match ($action) {
     'momo-return' => (new MomoController)->returnUrl(),
     'momo-notify' => (new MomoController)->notify(),
 
+    // Trang nội dung
+    'about'     => (new PageController)->about(),
+    'promotion' => (new PageController)->promotion(),
+    'contact'   => (new PageController)->contact(),
+
     // Giỏ hàng
     'cart'        => (new CartController)->index(),
     'cart-add'    => (new CartController)->add(),
     'cart-update' => (new CartController)->update(),
     'cart-remove' => (new CartController)->remove(),
     'cart-clear'  => (new CartController)->clear(),
+
+    //
+
 
     default => require_once PATH_VIEW_CLIENT . '404.php',
 };

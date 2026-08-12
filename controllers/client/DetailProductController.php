@@ -31,21 +31,32 @@ class DetailProductController
         $this->productModel->updateViewCount($newViewCount, $id);
         $product['view_count'] = $newViewCount;
 
+        // Lấy danh mục
         $category = $this->categoryModel->find($product['category_id']);
+
+        // Lấy bình luận của sản phẩm
         $comments = $this->commentModel->getByProductID($id);
 
         // Sản phẩm cùng danh mục, bỏ chính nó ra, lấy tối đa 4
         $related = [];
-        foreach ($this->productModel->getProductsByCategoryID($product['category_id']) as $item) {
+
+        foreach (
+            $this->productModel->getProductsByCategoryID(
+                $product['category_id']
+            ) as $item
+        ) {
             if ($item['id'] == $id) {
                 continue;
             }
+
             $related[] = $item;
+
             if (count($related) == 4) {
                 break;
             }
         }
 
+        // Thông báo lỗi bình luận
         $commentError = $_SESSION['comment_error'] ?? null;
         unset($_SESSION['comment_error']);
 
@@ -57,36 +68,64 @@ class DetailProductController
 
     public function storeComment()
     {
+        // Chỉ nhận POST
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            redirect(BASE_URL);
+            exit;
+        }
+
+        // Lấy ID sản phẩm
         $id = (int) ($_POST['product_id'] ?? 0);
 
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !$id) {
+        if (!$id) {
             redirect(BASE_URL);
+            exit;
         }
 
+        // URL quay lại sản phẩm
         $backUrl = BASE_URL . '?action=detail-product&id=' . $id;
 
-        // Chưa đăng nhập thì mời đăng nhập trước
-        if (!isset($_SESSION['user_id'])) {
+        // Kiểm tra đăng nhập
+        $userId = $_SESSION['user_id'] ?? null;
+
+        if (!$userId) {
             $_SESSION['comment_error'] = 'Bạn cần đăng nhập để viết bình luận.';
             redirect($backUrl);
+            exit;
         }
 
+        // Lấy nội dung
         $content = trim($_POST['content'] ?? '');
 
         if ($content === '') {
             $_SESSION['comment_error'] = 'Vui lòng nhập nội dung bình luận.';
             redirect($backUrl);
+            exit;
         }
 
-        // Chỉ cho bình luận sản phẩm có thật và đang hiện
+        // Kiểm tra sản phẩm tồn tại
         $product = $this->productModel->find($id);
+
         if (!$product || ($product['status'] ?? 1) == 0) {
+            $_SESSION['comment_error'] = 'Sản phẩm không tồn tại hoặc đã bị ẩn.';
             redirect(BASE_URL);
+            exit;
         }
 
-        $this->commentModel->insert($id, $_SESSION['user_id'], $content);
+        // Thêm bình luận
+        $result = $this->commentModel->insert(
+            $id,
+            (int) $userId,
+            $content
+        );
 
-        $_SESSION['success_message'] = 'Đã gửi bình luận của bạn.';
+        if ($result) {
+            $_SESSION['success_message'] = 'Đã gửi bình luận của bạn.';
+        } else {
+            $_SESSION['comment_error'] = 'Không thể gửi bình luận. Vui lòng thử lại.';
+        }
+
         redirect($backUrl . '#binh-luan');
+        exit;
     }
 }
