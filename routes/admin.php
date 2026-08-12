@@ -4,6 +4,9 @@ $action = $_GET['action'] ?? '/';
 
 match ($action) {
     '/' => (new DashboardController)->index(),
+    // THỐNG KÊ
+    'statistic' => (new StatisticController)->index(),
+
 
     // QUẢN TRỊ SẢN PHẨM
     'list-product'   => (new ProductController)->index(),
