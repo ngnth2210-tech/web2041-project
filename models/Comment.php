@@ -73,6 +73,8 @@ class Comment extends BaseModel
 
     /**
      * Đổi trạng thái bình luận
+     * 1 = Hiển thị
+     * 0 = Ẩn
      */
     public function updateStatus($id, $status)
     {
@@ -88,6 +90,15 @@ class Comment extends BaseModel
             $status,
             $id
         ]);
+    }
+
+    /**
+     * Hàm update dùng cho CommentController
+     * Tránh lỗi: Call to undefined method Comment::update()
+     */
+    public function update($id, $status)
+    {
+        return $this->updateStatus($id, $status);
     }
 
     /**
