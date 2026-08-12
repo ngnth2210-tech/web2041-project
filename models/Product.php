@@ -108,6 +108,34 @@ class Product extends BaseModel {
         $stmt->execute();
     }
 
+    /**
+     * Danh sách sản phẩm đang hiện, có thể lọc theo danh mục và từ khoá.
+     * Dùng cho trang danh sách sản phẩm phía người dùng.
+     */
+    public function getActiveProducts($category_id = null, $keyword = null) {
+        $sql = 'SELECT pro.*, cat.name as cat_name
+            FROM `products` as pro
+            JOIN categories as cat ON pro.category_id = cat.id
+            WHERE IFNULL(pro.status,1) = 1';
+        $params = [];
+
+        if (!empty($category_id)) {
+            $sql .= ' AND pro.category_id = :category_id';
+            $params['category_id'] = $category_id;
+        }
+
+        if (!empty($keyword)) {
+            $sql .= ' AND pro.name LIKE :keyword';
+            $params['keyword'] = '%' . $keyword . '%';
+        }
+
+        $sql .= ' ORDER BY pro.id DESC';
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll();
+    }
+
     public function getProductsByCategoryID($category_id) {
         $sql = 'SELECT pro.*, cat.name as cat_name 
             FROM `products` as pro 

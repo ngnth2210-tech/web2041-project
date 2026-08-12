@@ -10,7 +10,7 @@
     <div class="col-md-4">
         <div class="info-card">
             <div class="info-label">CSDL</div>
-            <div class="info-value"><?= e(DB_NAME) ?></div>
+            <div class="info-value">Tiến Dũng ok</div>
         </div>
     </div>
     <div class="col-md-4">
